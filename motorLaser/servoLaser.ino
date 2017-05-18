@@ -5,20 +5,10 @@ Servo miniServo;
 
 const int servoPin = 9;
 const int laserPin = 2;
-const int secondsD = 1000;
+const int secondsD = 100;
 int degrees = 0;   
 
-
-void setup()
-{
-	pinMode(laserPin,OUTPUT);
-	digitalWrite(laserPin,LOW);
-	miniServo.attach(servoPin);
-}
-
-void loop()
-{
-	digitalWrite(laserPin,HIGH);
+void autopilot(){
 	for(degrees = 0; degrees < 180; degrees++){
 		miniServo.write(degrees);
 		delay(secondsD);
@@ -27,4 +17,50 @@ void loop()
 		miniServo.write(degrees);
 		delay(secondsD);
 	}
+}
+
+void setup()
+{
+	pinMode(laserPin,OUTPUT);
+	digitalWrite(laserPin,LOW);
+	miniServo.write(0); // position
+	miniServo.attach(servoPin);
+	Serial.begin(9600);
+}
+
+void loop()
+{
+	digitalWrite(laserPin,HIGH); // laser always on
+
+	if(Serial.available() > 0){
+		char command = Serial.read();
+
+		switch(command){
+			case 'r':
+				degrees += 15;
+				miniServo.write(degrees);
+				delay(2);
+				break;
+			case 'l':
+				degrees -= 15;
+				miniServo.write(degrees);
+				delay(2);
+				break;
+			case 'd':
+				// detach to save battery
+				miniServo.detach();
+				delay(2);
+				break;
+			case 'a':
+				// attach when it is needed
+				miniServo.attach(servoPin);
+				delay(2);
+				break;
+			case 'A':
+				autopilot();
+				delay(2);
+				break;
+		}
+	}
+	
 }
