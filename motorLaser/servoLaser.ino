@@ -37,14 +37,31 @@ void loop()
 
 		switch(command){
 			case 'r':
-				degrees += 15;
-				miniServo.write(degrees);
-				delay(2);
+				if(degrees >= 0 && degrees < 180){
+				       degrees += 15;	
+				       miniServo.write(degrees);
+				       Serial.println(degrees);
+				       delay(2);
+				}else{
+					Serial.print("You have reached: ");
+					Serial.print(degrees);
+					Serial.print(" degress");
+					Serial.println();
+				}
 				break;
 			case 'l':
-				degrees -= 15;
-				miniServo.write(degrees);
-				delay(2);
+				if(degrees >= 15 && degrees <= 180){
+					degrees -= 15;
+					miniServo.write(degrees);
+					Serial.println(degrees);
+					delay(2);
+				}else{
+
+					Serial.print("You have reached: ");
+					Serial.print(degrees);
+					Serial.print(" degress");
+					Serial.println();
+				}
 				break;
 			case 'd':
 				// detach to save battery
