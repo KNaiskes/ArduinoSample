@@ -47,6 +47,7 @@ void loop()
 					Serial.print(degrees);
 					Serial.print(" degress");
 					Serial.println();
+					delay(2);
 				}
 				break;
 			case 'l':
@@ -61,6 +62,7 @@ void loop()
 					Serial.print(degrees);
 					Serial.print(" degress");
 					Serial.println();
+					delay(2);
 				}
 				break;
 			case 'd':
