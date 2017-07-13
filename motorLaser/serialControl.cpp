@@ -1,10 +1,9 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-extern Servo miniServo;
 //const int servoPin = 9;
 extern const int servoPin;
-extern const int laserPin;
+//extern const int laserPin;
 extern const int secondsD;
 
 extern int degrees;
