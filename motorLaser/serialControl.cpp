@@ -5,7 +5,7 @@
 extern Servo miniServo;
 //const int servoPin = 9;
 extern const int servoPin;
-//extern const int laserPin;
+extern const int laserPin;
 extern const int secondsD;
 
 extern int degrees;
@@ -17,6 +17,9 @@ void serialControl(){
 		char command = Serial.read();
 
 		switch(command){
+			case 'f':
+				digitalWrite(laserPin,HIGH);
+				break;
 			case 'r':
 				if(degrees >= 0 && degrees < 180){
 				       degrees += 15;	

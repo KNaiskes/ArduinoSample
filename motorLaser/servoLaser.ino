@@ -7,7 +7,7 @@ Servo miniServo;
 
 //const int servoPin = 9;
 extern const int servoPin = 9;
-const int laserPin = 2;
+extern const int laserPin = 2;
 
 const int secondsD = 100; //delay
 
@@ -25,7 +25,7 @@ void setup()
 
 void loop()
 {
-	digitalWrite(laserPin,HIGH); // laser always on
+	//digitalWrite(laserPin,HIGH); // laser always on
 
 	serialControl();	
 }
