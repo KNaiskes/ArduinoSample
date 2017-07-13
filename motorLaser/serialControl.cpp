@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <Servo.h>
+#include "autoPilot.h"
 
+extern Servo miniServo;
 //const int servoPin = 9;
 extern const int servoPin;
 //extern const int laserPin;
