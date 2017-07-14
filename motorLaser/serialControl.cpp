@@ -11,6 +11,7 @@ extern const int secondsD;
 extern int degrees;
 
 extern void autopilot();
+const int secondsD = 20;
 
 void serialControl(){
 	if(Serial.available() > 0){
@@ -19,19 +20,21 @@ void serialControl(){
 		switch(command){
 			case 'f':
 				digitalWrite(laserPin,HIGH);
+				delay(secondsD);
+				Serial.println("Fire");
 				break;
 			case 'r':
 				if(degrees >= 0 && degrees < 180){
 				       degrees += 15;	
 				       miniServo.write(degrees);
 				       Serial.println(degrees);
-				       delay(2);
+				       delay(secondsD);
 				}else{
 					Serial.print("You have reached: ");
 					Serial.print(degrees);
 					Serial.print(" degress");
 					Serial.println();
-					delay(2);
+					delay(secondsD);
 				}
 				break;
 			case 'l':
@@ -39,29 +42,29 @@ void serialControl(){
 					degrees -= 15;
 					miniServo.write(degrees);
 					Serial.println(degrees);
-					delay(2);
+					delay(secondsD);
 				}else{
 
 					Serial.print("You have reached: ");
 					Serial.print(degrees);
 					Serial.print(" degress");
 					Serial.println();
-					delay(2);
+					delay(secondsD);
 				}
 				break;
 			case 'd':
 				// detach to save battery
 				miniServo.detach();
-				delay(2);
+				delay(secondsD);
 				break;
 			case 'a':
 				// attach when it is needed
 				miniServo.attach(servoPin);
-				delay(2);
+				delay(secondsD);
 				break;
 			case 'A':
 				autopilot();
-				delay(2);
+				delay(secondsD);
 				break;
 		}
 	}
