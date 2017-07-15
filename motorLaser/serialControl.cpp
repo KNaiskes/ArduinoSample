@@ -18,10 +18,17 @@ void serialControl(){
 		char command = Serial.read();
 
 		switch(command){
+			// fire
 			case 'f':
 				digitalWrite(laserPin,HIGH);
 				delay(secondsD);
 				Serial.println("Fire");
+				break;
+				// ceasefire
+			case 'c':
+				digitalWrite(laserPin,LOW);
+				delay(secondsD);
+				Serial.println("Ceasefire");
 				break;
 			case 'r':
 				if(degrees >= 0 && degrees < 180){
