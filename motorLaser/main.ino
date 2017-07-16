@@ -2,10 +2,10 @@
 #include <Servo.h>
 #include "serialControl.h"
 #include "autoPilot.h"
+#include "btnControl.h"
 
 Servo miniServo;  
 
-//const int servoPin = 9;
 extern const int servoPin = 9;
 extern const int laserPin = 2;
 
@@ -16,6 +16,7 @@ int degrees = 0;
 
 void setup()
 {
+	btnSetup();
 	pinMode(laserPin,OUTPUT);
 	digitalWrite(laserPin,LOW);
 	miniServo.write(0); // position
@@ -28,4 +29,6 @@ void loop()
 	//digitalWrite(laserPin,HIGH); // laser always on
 
 	serialControl();	
+	btnControl();
+	
 }
