@@ -15,6 +15,8 @@ int btnStateL = 0;
 
 const int secondsD = 70;
 
+bool laserOn = false;
+
 void btnSetup()
 {
 	pinMode(btnR,INPUT);
@@ -37,8 +39,19 @@ void btnControl()
 		}
 	}
 	else if(btnStateF == HIGH){
-		digitalWrite(laserPin,HIGH);
-		delay(secondsD);
+		if(laserOn == true){
+			laserOn = false;
+		}
+		else{
+			laserOn = true;
+		}
+		if(laserOn == true){
+			digitalWrite(laserPin,HIGH);
+		}else{
+			digitalWrite(laserPin,LOW);
+		}
+		//digitalWrite(laserPin,HIGH);
+		//delay(secondsD);
 	}
 	else if(btnStateL == HIGH){
 		if(degrees >= 15 && degrees <= 180){
