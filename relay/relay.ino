@@ -3,7 +3,7 @@
 const int c1 = 7;
 
 void setup() {
-	pinMode(r1,OUTPUT);
+	pinMode(c1,OUTPUT);
 	digitalWrite(c1,LOW);
 }
 
