@@ -1,16 +1,24 @@
 #include<Arduino.h>
 
-const int c1 = 7;
+const int channel1 = 7;
 
 void setup() {
-	pinMode(c1,OUTPUT);
-	digitalWrite(c1,LOW);
+	pinMode(channel1,OUTPUT);
+	Serial.begin(9600);
+	digitalWrite(channel1,HIGH);
 }
 
 void loop() {
+	if(Serial.available() > 0) {
+		char command = Serial.read();
 
-	digitalWrite(c1,LOW);
-	delay(3000);
-	digitalWrite(c1,HIGH);
-	delay(3000);
+		switch(command) {
+			case 'o':
+				digitalWrite(channel1,HIGH);
+				break;
+			case 'c':
+				digitalWrite(channel1,LOW);
+				break;
+		}
+	}
 }
