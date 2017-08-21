@@ -1,4 +1,5 @@
 #include<Arduino.h>
+#include "serialControl.h"
 
 const int channel1 = 7;
 
@@ -9,16 +10,19 @@ void setup() {
 }
 
 void loop() {
+	serialControl(channel1);
+	/*
 	if(Serial.available() > 0) {
 		char command = Serial.read();
 
 		switch(command) {
 			case 'o':
-				digitalWrite(channel1,HIGH);
+				digitalWrite(channel1,LOW);
 				break;
 			case 'c':
-				digitalWrite(channel1,LOW);
+				digitalWrite(channel1,HIGH);
 				break;
 		}
 	}
+	*/
 }
