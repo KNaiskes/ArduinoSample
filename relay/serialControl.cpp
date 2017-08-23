@@ -1,4 +1,5 @@
 #include<Arduino.h>
+
 void serialControl(const int relayChannel) {
 	if(Serial.available() > 0) {
 		char command = Serial.read();
