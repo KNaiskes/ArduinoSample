@@ -14,6 +14,10 @@ const int echoPin = 5;
 const int triggerPin = 6;
 
 
+void simpleTest(const int buzzer) {
+	tone(buzzerPin,200,700);
+	delay(60000);
+}
 
 void pirSensor(int pir ) {
 	pir = digitalRead(pirPin);
@@ -54,5 +58,6 @@ void setup() {
 	
 void loop() {
 	//pirSensor(status);
-	distanceSensor(triggerPin,echoPin);
+	//distanceSensor(triggerPin,echoPin);
+	simpleTest(buzzerPin);
 }
