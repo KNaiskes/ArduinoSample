@@ -5,13 +5,13 @@ void lightSensor(const int sensorPin,const int relayChannel) {
 
 	lightStatus = analogRead(sensorPin);
 
-	if(lightStatus < 300) {
+	if(lightStatus < 350) {
 		digitalWrite(relayChannel,LOW);
 		delay(10000);
 	}
 	else {
 		digitalWrite(relayChannel,HIGH);
-		delay(2000);
+		delay(3000);
 	}
 	delay(2000);
 }
