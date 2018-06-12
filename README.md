@@ -1,2 +1,3 @@
 ## Hobby projects
-Arduino projects that I develop in my free time using an arduino uno!
+Simple Arduino projects that I develop in my free time in order to use them as 
+a reference for future, more complex projects.
