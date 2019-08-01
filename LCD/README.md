@@ -10,7 +10,7 @@ $ platformio lib install "LiquidCrystal_I2C"
 
 ### Upload code to Arduino
 ```
-# It may be necessary to change permission to ttyUSB0
+# It may be necessary to change permissions to ttyUSB0
 # $ sudo chmod 777 /dev/ttyUSB0
 $ platformio run --target upload
 ```
